@@ -28,3 +28,6 @@ use `info registers` for info about all registers including control registers, x
 
 - Open qemu with this command: `qemu-system-i386 -bios bios_backup.rom -s -S`
 - Open gdb connection with this command: `gdb -ix ./gdb_init_real_mode.txt -ex 'set tdesc filename target.xml' -ex 'target remote localhost:1234'`
+
+### Get info about float registers
+At the start, bios uses floating point registers sometimes. Here is how to show them in gdb: `info float`

@@ -16,6 +16,15 @@ run `sudo flashrom -p internal -r bios_backup.rom`. You may need to disable secu
   ```
 - Get `i386-32bit.xml` file from this URL: `https://raw.githubusercontent.com/qemu/qemu/master/gdb-xml/i386-32bit.xml`
   - In ubuntu, I get it with the command: `wget https://raw.githubusercontent.com/qemu/qemu/master/gdb-xml/i386-32bit.xml`
+ 
+## How to navigate gdb using this
+normal gdb commands like `info registers` work. But we have more in additional scripts provided.
+### Stepping through an instruction
+use `stepi` gdb command to step a single instruction
+### Show Real Mode Context
+use `context` script command to print: stack, DS:SI, ES:DI, CPU registers, IP, and EFLAGS.
+### All default registers
+use `info registers` for info about all registers including control registers, xmm registers, efer, segment registers etc.
 
 - Open qemu with this command: `qemu-system-i386 -bios bios_backup.rom -s -S`
 - Open gdb connection with this command: `gdb -ix ./gdb_init_real_mode.txt -ex 'set tdesc filename target.xml' -ex 'target remote localhost:1234'`

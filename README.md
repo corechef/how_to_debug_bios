@@ -1,4 +1,5 @@
-# how_to_debug_bios
+#
+how_to_debug_bios
 My notes on debugging firmware on my Laptop. Operating environment is Ubuntu 24.04.1 LTS x86_64. Hardware is a Lenovo ideapad 320-15IKB. I have not updated the firmware ever since I bought this machine at around 2018.
 
 
@@ -27,7 +28,7 @@ use `context` script command to print: stack, DS:SI, ES:DI, CPU registers, IP, a
 use `info registers` for info about all registers including control registers, xmm registers, efer, segment registers etc.
 
 - Open qemu with this command: `qemu-system-i386 -bios bios_backup.rom -s -S`
-- Open gdb connection with this command: `gdb -ix ./gdb_init_real_mode.txt -ex 'set tdesc filename target.xml' -ex 'target remote localhost:1234'`
+- Open connection with this command: `gdb -ix ./gdb_init_real_mode.txt -ex 'set tdesc filename target.xml' -ex 'target remote localhost:1234'`
 
 ### Get info about float registers
 At the start, bios uses floating point registers sometimes. Here is how to show them in gdb: `info float`
